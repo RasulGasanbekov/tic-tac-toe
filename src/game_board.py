@@ -1,18 +1,18 @@
 """
 @file game_board.py
-@brief Класс для создания графического игрового поля
+Класс для создания графического игрового поля
 """
 
 import tkinter as tk
 
 class GameBoard:
     """
-    @brief Класс игрового поля (только визуальная часть)
+    Класс игрового поля (только визуальная часть)
     """
     
     def __init__(self):
         """
-        @brief Конструктор - создает пустое поле 3x3
+        Конструктор - создает пустое поле 3x3
         """
         self.window = tk.Tk()
         self.window.title("Крестики-нолики")
@@ -29,8 +29,7 @@ class GameBoard:
         self._create_visual_interface()
     
     def _create_visual_interface(self):
-        """
-        @brief Создание визуального интерфейса поля
+        """Создание визуального интерфейса поля
         @return: None
         """
         # Заголовок
@@ -55,8 +54,7 @@ class GameBoard:
         status_label.pack()
     
     def _create_board_grid(self):
-        """
-        @brief Создание сетки игрового поля
+        """Создание сетки игрового поля
         @return: None
         """
         board_frame = tk.Frame(self.window)
@@ -82,8 +80,7 @@ class GameBoard:
             self.cells.append(cell_row)
     
     def run(self):
-        """
-        @brief Запуск графического приложения
+        """Запуск графического приложения
         @return: None
         """
         self.window.mainloop()

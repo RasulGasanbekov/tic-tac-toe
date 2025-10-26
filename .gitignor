@@ -18,4 +18,6 @@ venv/
 Thumbs.db
 
 # Doxygen (генерируется автоматически)
-docs/output/
+docs/html/
+docs/latex/
+docs/output
