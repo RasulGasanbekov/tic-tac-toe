@@ -1,0 +1,37 @@
+name: CI Pipeline
+
+# ЗАПУСКАТЬ ПРИ ЛЮБОМ ПУШЕ И PULL REQUEST
+on: 
+  push:
+    branches: ['**']  # ЛЮБАЯ ветка
+  pull_request:
+    branches: [main]  # ЛЮБАЯ ветка
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    # ШАГ 1: СКАЧАТЬ КОД
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # ШАГ 2: УСТАНОВИТЬ PYTHON
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    # ШАГ 3: ЗАПУСТИТЬ ТВОИ ТЕСТЫ
+    - name: Run tests
+      run: |
+        cd tests
+        python test_basic.py
+        python test_input_handler.py
+
+    # ШАГ 4: ПРОВЕРИТЬ СИНТАКСИС КОДА
+    - name: Check syntax
+      run: |
+        python -m py_compile src/*.py
+        echo "✅ All files are compiled without errors."
